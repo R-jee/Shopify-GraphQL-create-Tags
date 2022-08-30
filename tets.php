@@ -38,13 +38,12 @@ function createTags__withGraphQL( $access_token , $host_shop , $gid , $tags_arra
         
 function removeTags__withGraphQL( $access_token , $host_shop , $gid , $tags_array ){
     $queryUsingVariables = <<<QUERY
-    mutation tagsRemove(\$id: , \$tags: ) {
+    mutation removeTags(\$id: ID!, \$tags: [String!]!) {
         tagsRemove(id: \$id, tags: \$tags) {
             node {
                 id
             }
             userErrors {
-                field
                 message
             }
         }
